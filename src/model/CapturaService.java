@@ -8,7 +8,7 @@ public class CapturaService {
     public boolean tentarCapturar(Pokemon pokemon, String tipoBola) {
         if (tipoBola.equals("Master")) return true; // Master Ball é 100%
 
-        double chanceBase = 10.0; // 10% base
+        double chanceBase = 20.0; // 20% base
         double multiplicadorBola = 1.0;
 
         if (tipoBola.equals("Great")) multiplicadorBola = 1.5;

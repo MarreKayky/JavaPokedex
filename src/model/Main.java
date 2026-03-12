@@ -50,7 +50,11 @@ public class Main {
                     if (acao.equals("1")) {
                         if (obterQtd(mochila, bolaSelecionada) > 0) {
                             mochila.usarBola(bolaSelecionada);
-                            System.out.println("\nLançando " + bolaSelecionada + "... ⚾");
+                            System.out.println("\nLançando " + bolaSelecionada + "... ");
+
+                            // ======= ADICIONE ESTA LINHA AQUI =======
+                            exibirBarraProgresso();
+                            // ========================================
 
                             if (capturaService.tentarCapturar(selvagem, bolaSelecionada)) {
                                 System.out.println("✨ SUCESSO! " + selvagem.getNome().toUpperCase() + " foi capturado!");
@@ -196,5 +200,17 @@ public class Main {
                 System.out.println("❌ Por favor, digite apenas números e vírgulas (ex: 1, 2, 3).");
             }
         }
+    }
+    private static void exibirBarraProgresso() {
+        System.out.print("Capturando: [");
+        for (int i = 0; i <= 20; i++) {
+            System.out.print("█"); // Desenha a barra
+            try {
+                Thread.sleep(45); // Faz o Java "esperar" 45 milisegundos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        System.out.println("] 100%!");
     }
 }
